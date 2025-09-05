@@ -1,0 +1,55 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import dp kivy.metrics.dp
+#:import images_path kivymd.images_path
+
+<InfoCard@MDCard>:    
+    id: info_card
+    custom_width: 0             #declaration param
+    custom_v1: ''               #declaration param
+    custom_v2: ''
+    custom_v3: ''
+
+    size_hint: None, 1
+    width: self.custom_width
+    
+    radius: [12, 12, 12, 12]
+    orientation: "vertical"
+    
+    MDGridLayout:
+        cols: 2
+        rows: 3        
+
+        spacing: "5dp"  # Espace entre les widgets dans la grille
+        padding: "1dp"  # Marge interne de la grille
+        size_hint: 1, 1          #
+    
+        MDLabel:            
+            text: "Solde"
+            theme_text_color: "Secondary"
+            halign: "center"
+            size_hint_x: 1
+            theme_bg_color:"Custom" 
+            #md_bg_color: get_color_from_hex('#FFFFFF')
+        MDLabel:
+            text: root.custom_v1
+            halign: "center"
+            size_hint_x: 0.25
+
+        MDLabel:            
+            text: ''
+            theme_text_color: "Secondary"
+            halign: "center"
+            size_hint_x: 0.75
+        MDLabel:
+            text: root.custom_v2
+            halign: "center"
+            size_hint_x: 0.25
+        MDLabel:            
+            text: ''
+            theme_text_color: "Secondary"
+            halign: "center"
+            size_hint_x: 0.5
+        MDLabel:
+            text: root.custom_v3
+            halign: "center"
+            size_hint_x: 0.5

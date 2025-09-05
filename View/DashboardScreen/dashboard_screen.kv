@@ -36,11 +36,38 @@
                             MDActionTopAppBarButton:
                                 icon: "account-circle-outline"
 
-                    #Scool view ===========================================
-                    #MDBoxLayout:
-                    #    orientation: "horizontal"
-                        #md_bg_color: self.theme_cls.backgroundColor #get_color_from_hex('#1F1F1F')
+
+                    #Scool view Horizontal ===================================
+                    MDScrollView:
+                        id: card_container
+                        size_hint: 1, None                  # sur toute la largeur                   
+                        height: dp(200)
+                        scroll_type: ['bars', 'content']
+                        bar_width: "0dp"                
+                        do_scroll_x: True
+                        do_scroll_y: False
                     
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_width: True                    
+                            pos_hint:
+                            spacing: "5dp"
+                            padding: "10dp"
+
+
+                            InfoCard:
+                                custom_width: card_container.width - dp(30)
+                                custom_v1: str(123)
+                                custom_v2: str(885)
+                                custom_v3: str(416354)
+
+                            InfoCard:
+                                custom_width: card_container.width - dp(30)
+                                custom_v1: str(484)
+
+                            
+
+                    #Scool view Vertical ===========================================                                    
                     MDScrollView:
                         id: label_container
                         scroll_type: ['bars', 'content']
@@ -57,14 +84,55 @@
                             spacing: "10dp"
                             padding: "10dp"
                             
-                            InfoCard:
+                            DataCard:
 
-                            InfoCard:
+                            DataCard:
 
-                            InfoCard:
+                            DataCard:
 
-                            InfoCard:
+                            DataCard:
 
+                    
+                    #Botton Bar =====================================================
+                    MDNavigationBar:
+                        pos_hint: {"bottom": 1}   
+                        id: nav_bar_id
+                        #active_icon_color: self.theme_cls.primary_color        
+                        #active_text_color: self.active_icon_color 
+
+                        canvas.after:
+                            Color:
+                                rgba: 0, 0, 0, 0.2 # Couleur de la bordure (gris clair)
+                            Rectangle:
+                                size: self.width, 1 # Hauteur de 1 pixel
+                                pos: self.x, self.top - 1
+
+                        BaseMDNavigationItem:
+                            text: "Dashboard"
+                            icon: "home"
+                            font_size: "20sp"
+                            id: dashboard_nav_item
+                            active: True
+
+                        BaseMDNavigationItem:
+                            text: "Operations"
+                            icon: "view-list"                
+                            font_size: "20sp"               
+                            id: operations_nav_item
+                            on_release: root.go_to_operations()
+                            active : False
+                            
+                        #BaseMDNavigationItem:
+                        #    text: "Import"
+                        #    icon: "images/import.png"    
+                        #    icon_mode: "standard"            
+                        ##    font_size: "20sp"               
+                        ##    id: operations_nav_item
+                        #    on_release: root.import_databk()
+                        #    active : False
+
+
+        #Menu Burger =====================================================
         MDNavigationDrawer:
             id: nav_drawer
             radius: 0, dp(16), dp(16), 0
@@ -85,23 +153,6 @@
 
                 MDNavigationDrawerDivider:
 
- 
-        
-<InfoCard@MDCard>:    
-    id: my_infoCard
-
-    padding:[dp(15),dp(15),dp(15),dp(35)]
-    size_hint: 1, None
-    height: "400dp"
-                    
-    radius: [12]
-   
-    canvas.after:
-        Color:
-            rgba: 0, 0, 0, 0.2 # Couleur de la bordure (gris clair)
-        Line:
-            width: 1
-            rounded_rectangle: (self.x, self.y, self.width, self.height, 12)
 
 
 

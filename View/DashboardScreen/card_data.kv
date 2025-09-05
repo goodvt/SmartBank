@@ -1,0 +1,16 @@
+
+<DataCard@MDCard>:    
+    id: data_card
+
+    padding:[dp(15),dp(15),dp(15),dp(35)]
+    size_hint: 1, None
+    height: "400dp"
+                    
+    radius: [12]
+   
+    canvas.after:
+        Color:
+            rgba: 0, 0, 0, 0.2 # Couleur de la bordure (gris clair)
+        Line:
+            width: 1
+            rounded_rectangle: (self.x, self.y, self.width, self.height, 12)
