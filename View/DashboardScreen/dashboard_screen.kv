@@ -1,0 +1,107 @@
+
+<DashboardScreenView>:
+    MDNavigationLayout:
+    
+        #MDScreenManager permet de gérer le contenu principale
+        MDScreenManager:
+            id: dashboard_screen
+            MDScreen:
+                name: "dashboard_content"
+            
+                
+                # Utilise un MDBoxLayout principal avec orientation 'vertical' pour empiler les composants
+                MDBoxLayout:
+                    orientation: 'vertical'
+
+                    #Top Bar ===========================================
+                    MDTopAppBar:
+                        type: "small"            
+                        
+                        MDTopAppBarLeadingButtonContainer:
+                            MDActionTopAppBarButton:
+                                icon: "menu"
+                                id: "menu_button"
+                                on_press: nav_drawer.set_state("toggle")          
+                        
+                        MDTopAppBarTitle:
+                            text: "Dashboard"
+                            
+                        MDTopAppBarTrailingButtonContainer:
+                            MDActionTopAppBarButton:
+                                icon: 
+                                    "weather-night" if app.theme_cls.theme_style == 'Light' else "weather-sunny"
+                                on_press:
+                                    app.apply_styles("Dark") if app.theme_cls.theme_style == 'Light' else app.apply_styles("Light")
+                            
+                            MDActionTopAppBarButton:
+                                icon: "account-circle-outline"
+
+                    #Scool view ===========================================
+                    #MDBoxLayout:
+                    #    orientation: "horizontal"
+                        #md_bg_color: self.theme_cls.backgroundColor #get_color_from_hex('#1F1F1F')
+                    
+                    MDScrollView:
+                        id: label_container
+                        scroll_type: ['bars', 'content']
+                        bar_width: "0dp"
+                        do_scroll_x: False
+                        do_scroll_y: True
+                        #on_scroll_y: root.on_scroll(self.scroll_y)
+                        
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            adaptive_height: True
+                            #height: self.minimum_height
+                            spacing: "10dp"
+                            padding: "10dp"
+                            
+                            InfoCard:
+
+                            InfoCard:
+
+                            InfoCard:
+
+                            InfoCard:
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: 0, dp(16), dp(16), 0
+
+            MDNavigationDrawerMenu:
+                MDNavigationDrawerLabel:
+                    text: "Actions rapides"
+
+                MDNavigationDrawerItem:
+
+                    on_release: print('OK')
+                    
+                    MDNavigationDrawerItemLeadingIcon:
+                        icon: "download-box"
+
+                    MDNavigationDrawerItemText:
+                        text: "GGdrive Comptes"
+
+                MDNavigationDrawerDivider:
+
+ 
+        
+<InfoCard@MDCard>:    
+    id: my_infoCard
+
+    padding:[dp(15),dp(15),dp(15),dp(35)]
+    size_hint: 1, None
+    height: "400dp"
+                    
+    radius: [12]
+   
+    canvas.after:
+        Color:
+            rgba: 0, 0, 0, 0.2 # Couleur de la bordure (gris clair)
+        Line:
+            width: 1
+            rounded_rectangle: (self.x, self.y, self.width, self.height, 12)
+
+
+
