@@ -24,3 +24,5 @@ class DashboardScreenController:
 
     def get_view(self) -> View.DashboardScreen.dashboard_screen:
         return self.view
+
+   
