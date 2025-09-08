@@ -31,3 +31,13 @@ Make sure you have the following installed:
 You should see the app window open with some basic app design. Make changes to the `.kv` files and save it to see the updates in real-time.
 
 Happy Coding!
+
+3. add view : 
+
+kivymd.add_view \
+    name_pattern \
+    path_to_project \
+    name_view
+
+kivymd.add_view MVC . OperationListScreen --use_responsive yes
+ 

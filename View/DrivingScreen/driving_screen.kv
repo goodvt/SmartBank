@@ -1,0 +1,65 @@
+<DrivingScreenView>
+    MDNavigationLayout:
+        MDScreenManager:
+            id: driving_screen
+            MDScreen:
+                name: "driving_content"
+                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(15)
+                    padding: dp(16)
+
+                    MDLabel:
+                        text: "Enregistrement du Kilométrage et de la Date"
+                        halign: "center"
+                        #font_style: "H5"
+                        #theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDScrollView:
+                        MDBoxLayout:
+                            orientation: 'vertical'
+                    
+                            spacing: dp(15)
+                            padding: dp(16)
+
+                            MDTextField:
+                                id: mileage_input
+                                hint_text: "Saisissez le kilométrage"
+                                #mode: "rectangle"
+                                #input_type: "number" # Permet uniquement les chiffres
+                                #max_text_length: 7 # Limite à 7 chiffres pour le kilométrage
+                                #helper_text: "Entrez le kilométrage actuel du véhicule"
+                                #helper_text_mode: "on_focus"
+                                #required: True # Rend le champ obligatoire
+                                #validator: "int" # Valide que c'est un entier
+
+                            MDLabel:
+                                id: date_display
+                                text: 
+                                halign: "left"
+                                #theme_text_color: "Primary"
+                                #font_style: "Subtitle1"
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
+                            MDTextField:
+                                id: field
+                                mode: "filled"
+                                size_hint_x: .5
+                                width:100
+                                text: root.date_imputation
+                                on_focus: root.controller.show_date_picker(self, self.focus)
+
+                                MDTextFieldHintText:
+                                    text: "Date Imputation"
+
+                                MDTextFieldTrailingIcon:
+                                    icon: "calendar"
+
+                            MDButton:
+                                text: "Enregistrer"
+                                pos_hint: {"center_x": .5}
+                        

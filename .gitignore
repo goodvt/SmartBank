@@ -4,3 +4,6 @@ libs/__pycache__
 Model/__pycache__
 Utility/__pycache__
 View/__pycache__
+Model/__pycache__/dasboard_screen.cpython-313.pyc
+Controller/__pycache__/dashboard_screen.cpython-313.pyc
+View/DashboardScreen/__pycache__/dashboard_screen.cpython-313.pyc

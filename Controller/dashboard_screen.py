@@ -12,7 +12,7 @@ importlib.reload(View.DashboardScreen.dashboard_screen)
  
 class DashboardScreenController:
     """
-    The `SampleScreenController` class represents a controller implementation.
+    The class represents a controller implementation.
     Coordinates work of the view with the model.
     The controller implements the strategy pattern. The controller connects to
     the view to control its actions.
@@ -24,5 +24,10 @@ class DashboardScreenController:
 
     def get_view(self) -> View.DashboardScreen.dashboard_screen:
         return self.view
+    
+    def goto_operation(self):
+        # Cette méthode va maintenant changer l'écran
+        print("Operation")        
+        self.view.manager_screens.current = "driving screen"
 
    
