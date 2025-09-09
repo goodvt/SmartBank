@@ -10,10 +10,10 @@ package.name = smartbank
 package.domain = org.novfensec.smartbank
 
 # (str) Source code where the main.py live
-source.dir = .
+source.dir = .,assets/db/mydb.db
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas
+source.include_exts = py,png,jpg,kv,atlas,db
 
 # (list) List of inclusions using pattern matching
 source.include_patterns = assets/*,assets/images/*.png
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3, kivy==2.3.0, https://github.com/kivymd/KivyMD/archive/master.zip, pillow, materialyoucolor, exceptiongroup, asyncgui, asynckivy
+requirements = python3, kivy==2.3.0, pillow, materialyoucolor, exceptiongroup, asyncgui, asynckivy, kivymd
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -96,6 +96,7 @@ fullscreen = 0
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
 #android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
+android.permissions = WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host

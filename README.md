@@ -40,4 +40,16 @@ kivymd.add_view \
     name_view
 
 kivymd.add_view MVC . OperationListScreen --use_responsive yes
- 
+
+
+4. colab
+
+!sudo apt update && sudo apt upgrade -y
+!sudo apt install -y git zip unzip openjdk-11-jdk python3-dev build-essential libssl-dev libffi-dev
+!pip install --upgrade pip
+!pip install buildozer
+
+!unzip app.zip -d .
+
+
+!buildozer -v android debug

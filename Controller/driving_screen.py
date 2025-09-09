@@ -53,5 +53,9 @@ class DrivingScreenController:
         instance_date_picker.dismiss()
         self.view.date_imputation = instance_date_picker.get_date()[0].strftime("%Y-%m-%d")        
     
+    def goto_menu(self):
+        # Cette méthode va maintenant changer l'écran
+        self.view.manager_screens.current = "dashboard screen"
+
     def save_data(self):
         pass
