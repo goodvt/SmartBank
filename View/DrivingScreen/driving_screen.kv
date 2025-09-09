@@ -7,7 +7,7 @@
             MDScreen:
                 name: "driving_content"
              
-                padding:dp(16)
+                #padding:dp(16)
                 MDBoxLayout:
                     orientation: 'vertical'
                                        
@@ -33,7 +33,6 @@
 
                             size_hint_y: None  # Empêche le box de s'étendre
                             height: self.minimum_height # Définit la hauteur minimale
-                            
 
                             MDLabel:
                                 id: date_display
@@ -71,21 +70,25 @@
                                 #required: True # Rend le champ obligatoire
                                 #validator: "int" # Valide que c'est un entier
 
-                
-                
-                
-                FloatLayout:
-                    padding: dp(10), dp(10) # Ajoute un peu de padding horizontal pour les aligner
-                    
-                    MDButton:
-                        size_hint: None, None
-                        size: dp(150), dp(50)
-                        pos_hint: {"center_x": .5, "center_y": .05}
-                        
-                        theme_text_color: "Custom"
-                        text_color: 0, 0, 0, 1  # noir
 
-                        MDButtonText:
-                            text: "Enregistrer"
-                        
-                
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: dp(70)
+                        padding: dp(10), dp(10)
+
+                        MDButton:
+                            theme_width: "Custom"   #permet d'étendre le bouton
+                            size_hint_x: 1
+                            height: dp(50)
+                            
+                            theme_bg_color:'Custom'     
+                            md_bg_color: get_color_from_hex('#0078D4') #1, 1, 1, 1
+                            
+                            MDButtonText:
+                                text: "Enregistrer"
+                                theme_text_color: "Custom"
+                                text_color: get_color_from_hex("#FFFFFF") #255, 255, 255, 1
+
+                                pos_hint: {"center_x": .5, "center_y": .5}
+

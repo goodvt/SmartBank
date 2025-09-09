@@ -5,8 +5,7 @@
 
 from kivy.lang import Builder
 from kivymd.app import MDApp
-from Utility.google import *
-#from Model.Pandas import *
+#from Model.google import *
 from pandas import DataFrame
 from datetime import datetime
 
@@ -77,9 +76,7 @@ def add_new_operations_from_files(df: DataFrame,type_compte) -> DataFrame:
                 dfFT = pd.read_csv(directory+files[0],sep=";",encoding='latin1')
 
                 #Prepare les données       
-                print("1")
                 dfFT["a"]=dfFT["Crédit"].str.replace(",",".").str.lstrip().fillna(0).astype(float)
-                print("2")
                 dfFT["b"]=dfFT["Débit"].str.replace(",",".").str.lstrip().fillna(0).astype(float)
         
                 dfFT["montant"]=dfFT["a"]+dfFT["b"]
